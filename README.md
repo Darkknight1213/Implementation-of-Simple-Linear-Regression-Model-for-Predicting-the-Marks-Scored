@@ -8,14 +8,16 @@ To write a program to predict the marks scored by a student using the simple lin
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. 
-2. 
-3. 
-4. 
+1. Import the standard Libraries
+2. Set variables for assigning dataset values
+3. Import Linear regression from Sklearnr
+4. Assign the points for representing the graph
+5. predict the regressio for makes by using the representation of the graph
+6. Compare the graphs and hence we obtained the Linear Regression for the given datas
 
 ## Program:
 
-### 1
+### 1. Importing the Standard Libraries
 ```python
 Program to implement the simple linear regression model for predicting the marks scored.
 Developed by: Mohamed Riyaz Ahamed
@@ -34,7 +36,9 @@ print(df.tail())
 ```
 ![image](https://github.com/user-attachments/assets/d1217ac2-c9fa-400f-ac12-b0eecd855ec0)
 
-### 2
+---
+
+### 2. Setting Variables for Assigning Dataset Values
 ```python
 x = df.iloc[:,:-1].values
 y = df.iloc[:,1].values
@@ -45,7 +49,9 @@ print(y)
 
 ![image](https://github.com/user-attachments/assets/07290241-f6bf-4296-8667-d787f84dffca)
 
-### 3
+---
+
+### 3. Training the Linear Regression Model & Predicting Results
 ```python
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
@@ -63,7 +69,9 @@ print(y_test)
 
 ![image](https://github.com/user-attachments/assets/4bb08e1b-1f9b-46a8-8cfb-5c7602118bfa)
 
-### 4
+---
+
+### 4. Plotting the Training Data Regression Line
 ```python
 #Graph plot for training data
 
@@ -79,7 +87,10 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/42df5909-d90a-4029-b66a-4fa5831cc1ef)
 
-### 5
+---
+
+
+### 5. Plotting the Testing Data Regression Line
 ```python
 #Graph plot for test data
 
@@ -95,7 +106,9 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/3f8a56a9-9aaa-4e87-9e17-0fd7a71ee128)
 
-### 6
+---
+
+### 6. Evaluating the Model (MSE, MAE, RMSE)
 ```python
 mse=mean_squared_error(y_test,y_pred)
 print('MSE = ',mse)
