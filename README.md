@@ -19,9 +19,9 @@ To write a program to predict the marks scored by a student using the simple lin
 
 ### 1. Importing the Standard Libraries
 ```python
-Program to implement the simple linear regression model for predicting the marks scored.
-Developed by: Mohamed Riyaz Ahamed
-RegisterNumber: 212224240092
+# Program to implement the simple linear regression model for predicting the marks scored.
+# Developed by: Mohamed Riyaz Ahamed
+# RegisterNumber: 212224240092
 
 
 import pandas as pd
@@ -29,17 +29,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error,mean_squared_error
 
+# read csv file
 df=pd.read_csv('/content/student_scores.csv')
+
+# Displaying the content in datafile
 print(df)
-print(df.head())
-print(df.tail())
 ```
-![image](https://github.com/user-attachments/assets/d1217ac2-c9fa-400f-ac12-b0eecd855ec0)
+![image](https://github.com/user-attachments/assets/0df66068-31b0-4cfa-834d-493d432d2d0e)
 
 ---
 
 ### 2. Setting Variables for Assigning Dataset Values
 ```python
+# Segregating data to variables
 x = df.iloc[:,:-1].values
 y = df.iloc[:,1].values
 
@@ -53,9 +55,11 @@ print(y)
 
 ### 3. Training the Linear Regression Model & Predicting Results
 ```python
+#splitting train and test data
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
 
+#import linear regression model and fit the model with the data
 from sklearn.linear_model import LinearRegression
 
 regressor = LinearRegression()
@@ -63,7 +67,9 @@ regressor.fit(x_train,y_train)
 
 y_pred = regressor.predict(x_test)
 
+#displaying predicted values
 print(y_pred)
+#displaying actual values
 print(y_test)
 ```
 
@@ -74,7 +80,6 @@ print(y_test)
 ### 4. Plotting the Training Data Regression Line
 ```python
 #Graph plot for training data
-
 plt.scatter(x_train,y_train,color='black')
 plt.plot(x_train,regressor.predict(x_train),color='blue')
 
@@ -93,7 +98,6 @@ plt.show()
 ### 5. Plotting the Testing Data Regression Line
 ```python
 #Graph plot for test data
-
 plt.scatter(x_test,y_test,color='black')
 plt.plot(x_train,regressor.predict(x_train),color='red')
 
@@ -110,6 +114,7 @@ plt.show()
 
 ### 6. Evaluating the Model (MSE, MAE, RMSE)
 ```python
+#find mae,mse,rmse
 mse=mean_squared_error(y_test,y_pred)
 print('MSE = ',mse)
 
